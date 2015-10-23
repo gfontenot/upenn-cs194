@@ -1,4 +1,7 @@
 module CreditCardValidator (toDigits) where
 
-toDigits :: Int -> [Int]
-toDigits = undefined
+toDigits :: Integer -> [Integer]
+toDigits = map readChar . show
+
+readChar :: Read c => Char -> c
+readChar = read . (:[])
