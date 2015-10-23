@@ -12,6 +12,4 @@ readChar :: Read c => Char -> c
 readChar = read . (:[])
 
 doubleEveryOther :: [Integer] -> [Integer]
-doubleEveryOther [] = []
-doubleEveryOther (x:[]) = [x]
-doubleEveryOther xs = doubleEveryOther (init . init $ xs) ++ [2 * (last . init $ xs)] ++ [last xs]
+doubleEveryOther = reverse . zipWith (*) (cycle [1, 2]) . reverse
