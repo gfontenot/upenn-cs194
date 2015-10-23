@@ -18,6 +18,11 @@ spec = do
             toDigitsRev 12345 `shouldBe` [5, 4, 3, 2, 1]
         digitParserSharedBehavior toDigitsRev
 
+    describe "doubleEveryOther" $ do
+        it "doubles every other digit in a list from the right" $ do
+            doubleEveryOther [1, 2, 3] `shouldBe` [1, 4, 3]
+            doubleEveryOther [8,7,6,5] `shouldBe` [16,7,12,5]
+
 digitParserSharedBehavior :: (Integer -> [Integer]) -> SpecWith ()
 digitParserSharedBehavior f =  do
         it "returns an empty list for negative numbers" $
