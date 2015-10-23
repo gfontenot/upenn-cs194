@@ -1,7 +1,9 @@
 module CreditCardValidator (toDigits, toDigitsRev) where
 
 toDigits :: Integer -> [Integer]
-toDigits = map readChar . show
+toDigits xs
+    | xs <= 0 = []
+toDigits xs = map readChar . show $ xs
 
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev = reverse . toDigits
