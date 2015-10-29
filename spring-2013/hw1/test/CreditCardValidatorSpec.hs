@@ -11,12 +11,10 @@ spec = do
     describe "toDigits" $ do
         it "returns the digits as a list" $
             toDigits 12345 `shouldBe` [1, 2, 3, 4, 5]
-        digitParserSharedBehavior toDigits
-
-    describe "toDigitsRev" $ do
-        it "returns the digits as a list in reverse order" $
-            toDigitsRev 12345 `shouldBe` [5, 4, 3, 2, 1]
-        digitParserSharedBehavior toDigitsRev
+        it "returns an empty list for negative numbers" $
+            toDigits (-17) `shouldBe` []
+        it "returns an empty list for 0" $
+            toDigits 0 `shouldBe` []
 
     describe "doubleEveryOther" $ do
         it "doubles every other digit in a list from the right" $ do
@@ -31,10 +29,3 @@ spec = do
         it "validates a credit card number" $ do
             validate 4012888888881881 `shouldBe` True
             validate 4012888888881882 `shouldBe` False
-
-digitParserSharedBehavior :: (Integer -> [Integer]) -> SpecWith ()
-digitParserSharedBehavior f =  do
-        it "returns an empty list for negative numbers" $
-            f (-17) `shouldBe` []
-        it "returns an empty list for 0" $
-            f 0 `shouldBe` []
