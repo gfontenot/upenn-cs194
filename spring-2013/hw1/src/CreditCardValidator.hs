@@ -8,11 +8,11 @@ toDigits n
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev = reverse . toDigits
 
-readChar :: Read c => Char -> c
-readChar = read . (:[])
-
 doubleEveryOther :: [Integer] -> [Integer]
 doubleEveryOther = reverse . zipWith (*) (cycle [1, 2]) . reverse
 
 sumDigits :: [Integer] -> Integer
 sumDigits = sum . (toDigits =<<)
+
+readChar :: Read c => Char -> c
+readChar = read . (:[])
