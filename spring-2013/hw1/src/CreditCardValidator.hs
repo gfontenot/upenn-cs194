@@ -3,6 +3,7 @@ module CreditCardValidator
     , toDigitsRev
     , doubleEveryOther
     , sumDigits
+    , validate
     ) where
 
 toDigits :: Integer -> [Integer]
@@ -18,6 +19,12 @@ doubleEveryOther = reverse . zipWith (*) (cycle [1, 2]) . reverse
 
 sumDigits :: [Integer] -> Integer
 sumDigits = sum . (toDigits =<<)
+
+validate :: Integer -> Bool
+validate = checkRemainder . sumDigits . doubleEveryOther . toDigits
+
+checkRemainder :: Integral a => a -> Bool
+checkRemainder = (== 0) . (`mod` 10)
 
 readChar :: Read c => Char -> c
 readChar = read . (:[])

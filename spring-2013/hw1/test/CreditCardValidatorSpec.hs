@@ -27,6 +27,11 @@ spec = do
         it "returns the sum of every digit in the list" $
             sumDigits [16,7,12,5] `shouldBe` 22
 
+    describe "validate" $ do
+        it "validates a credit card number" $ do
+            validate 4012888888881881 `shouldBe` True
+            validate 4012888888881882 `shouldBe` False
+
 digitParserSharedBehavior :: (Integer -> [Integer]) -> SpecWith ()
 digitParserSharedBehavior f =  do
         it "returns an empty list for negative numbers" $
