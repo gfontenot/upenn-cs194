@@ -1,4 +1,9 @@
-module CreditCardValidator (toDigits, toDigitsRev, doubleEveryOther, sumDigits) where
+module CreditCardValidator
+    ( toDigits
+    , toDigitsRev
+    , doubleEveryOther
+    , sumDigits
+    ) where
 
 toDigits :: Integer -> [Integer]
 toDigits n
