@@ -10,4 +10,4 @@ spec :: Spec
 spec = do
     describe "hanoi" $ do
         it "solves the puzzle" $
-            hanoi 2 "a" "b" "c" `shouldBe` [("a","c"), ("a","b"), ("c","b")]
+            hanoi 2 "a" "b" "c" `shouldBe` [("a","b"), ("a","c"), ("b","c")]
