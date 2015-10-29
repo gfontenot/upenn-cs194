@@ -9,7 +9,8 @@ toDigits :: Integer -> [Integer]
 toDigits n
     | n <= 0 = []
     | otherwise = map readChar $ show n
-    where readChar = read . (:[])
+  where
+    readChar = read . (:[])
 
 doubleEveryOther :: [Integer] -> [Integer]
 doubleEveryOther = reverse . zipWith (*) (cycle [1, 2]) . reverse
@@ -19,4 +20,5 @@ sumDigits = sum . (toDigits =<<)
 
 validate :: Integer -> Bool
 validate = checkRemainder . sumDigits . doubleEveryOther . toDigits
-    where checkRemainder = (== 0) . (`mod` 10)
+  where
+    checkRemainder = (== 0) . (`mod` 10)
