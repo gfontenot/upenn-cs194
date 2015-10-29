@@ -8,7 +8,7 @@ module CreditCardValidator
 toDigits :: Integer -> [Integer]
 toDigits n
     | n <= 0 = []
-    | otherwise = map readChar . show $ n
+    | otherwise = map readChar $ show n
     where readChar = read . (:[])
 
 doubleEveryOther :: [Integer] -> [Integer]
