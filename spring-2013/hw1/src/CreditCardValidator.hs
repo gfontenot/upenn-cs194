@@ -16,7 +16,7 @@ doubleEveryOther :: [Integer] -> [Integer]
 doubleEveryOther = reverse . zipWith (*) (cycle [1, 2]) . reverse
 
 sumDigits :: [Integer] -> Integer
-sumDigits = sum . (toDigits =<<)
+sumDigits = sum . concatMap toDigits
 
 validate :: Integer -> Bool
 validate = checkRemainder . sumDigits . doubleEveryOther . toDigits
